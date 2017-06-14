@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js demo</title>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        body{ font-size:18px; text-align:center;}
+        .time0{ height:30px; padding:200px;}
+    </style>
+</head>
+<body>
+<!--简单易用的倒计时js代码-->
+<div class="time0">
+    <span id="t_d"></span>
+    <span id="t_h"></span>
+    <span id="t_m"></span>
+    <span id="t_s"></span>
+</div>
+<script>
+    function gettime() {
+
+//        更好的用法
+//        <!--var EndTime= new Date('2017/06/20 00:00:00');-->
+//        <!--var NowTime = new Date();-->
+//        <!--var t =EndTime.getTime() - NowTime.getTime();-->
+        var t_d,t_h,t_m,t_s;
+        var d=0;
+        var h=0;
+        var m=0;
+        var s=0;
+        var endtime=Date.parse("2017/07/01");
+        var nowtime=new Date().getTime();
+
+        var gettiemes=endtime-nowtime;
+        if (gettiemes>0){
+             t_d=Math.floor(gettiemes/1000/60/60/24);
+            t_h=Math.floor(gettiemes/1000/60/60%24);
+            t_m=Math.floor(gettiemes/1000/60%60);
+            t_s=Math.floor(gettiemes/1000%60);
+        }
+        document.getElementById("t_d").innerHTML=t_d+"天";
+        document.getElementById('t_h').innerHTML=t_h+"小时";
+        document.getElementById('t_m').innerHTML=t_m+"分钟";
+        document.getElementById('t_s').innerHTML=t_s+"秒";
+        console.log(nowtime);
+    }
+    setInterval(gettime,0);
+</script>
+
+
+</body>
+</html>
